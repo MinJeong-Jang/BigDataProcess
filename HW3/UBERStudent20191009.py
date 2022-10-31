@@ -7,7 +7,7 @@ inputfile = sys.argv[1]
 outputfile = sys.argv[2]
 dayOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
 
-uberDic = dict{}
+uberDic = dict()
 with open(inputfile, "rt") as fp:
 	for line in fp:
 		uber = line.split(",")
