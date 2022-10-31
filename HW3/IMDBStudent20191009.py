@@ -2,12 +2,12 @@
 
 import sys
 
-inputFile = sys.argv[1]
-outputFile = sys.argv[2]
+inputfile = sys.argv[1]
+outputfile = sys.argv[2]
 
 genreDic = dict{}
 
-with open(inputFile, "rt") as fp:
+with open(inputfile, "rt") as fp:
 	for line in fp:
 		movie = line.split("::")
 		genreList = movie[2].strip().split("|")
@@ -18,7 +18,7 @@ with open(inputFile, "rt") as fp:
 			else:
 				genreDic[genre] += 1
 
-with open(outputFile, "at") as fp:
+with open(outputfile, "wt") as fp:
 	items = genreDic.items()
 	for item in items:
 		fp.write(item[0] + " " + str(item[1]) + "\n")

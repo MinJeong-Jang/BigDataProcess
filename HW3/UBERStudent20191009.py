@@ -3,12 +3,12 @@
 import sys
 import calendar
 
-inputFile = sys.argv[1]
-outputFile = sys.argv[2]
+inputfile = sys.argv[1]
+outputfile = sys.argv[2]
 dayOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
 
 uberDic = dict{}
-with open(inputFile, "rt") as fp:
+with open(inputfile, "rt") as fp:
 	for line in fp:
 		uber = line.split(",")
 		dayList = uber[1].split("/")
@@ -25,10 +25,7 @@ with open(inputFile, "rt") as fp:
 			trip += int(value[1])
 		uberDic = str(vehicle) + "," + str(trip)
 
-with open(outputFile, "at") as fp:
+with open(outputfile, "wt") as fp:
 	items = uberDic.items()
 	for item in items:
 		fp.write(item[0] + " " + str(item[1]) + "\n")
-		
-
-		
