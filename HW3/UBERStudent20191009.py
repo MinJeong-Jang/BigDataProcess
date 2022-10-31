@@ -12,7 +12,7 @@ with open(inputFile, "rt") as fp:
 	for line in fp:
 		uber = line.split(",")
 		dayList = uber[1].split("/")
-		day = calendar.weekday(int(dayList[2]), int(dayList[0]), int(dayList[1]))
+		day = dayOfWeek[calendar.weekday(int(dayList[2]), int(dayList[0]), int(dayList[1]))]
 
 		n = uber[0]
 		vehicle = int(uber[2])
@@ -25,7 +25,7 @@ with open(inputFile, "rt") as fp:
 			trip += int(value[1])
 		uberDic = str(vehicle) + "," + str(trip)
 
-with open(outputFile, "wt") as fp:
+with open(outputFile, "at") as fp:
 	items = uberDic.items()
 	for item in items:
 		fp.write(item[0] + " " + str(item[1]) + "\n")

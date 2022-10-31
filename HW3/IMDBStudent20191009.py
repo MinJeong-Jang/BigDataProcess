@@ -18,7 +18,7 @@ with open(inputFile, "rt") as fp:
 			else:
 				genreDic[genre] += 1
 
-with open(outputFile, "wt") as fp:
+with open(outputFile, "at") as fp:
 	items = genreDic.items()
 	for item in items:
 		fp.write(item[0] + " " + str(item[1]) + "\n")
