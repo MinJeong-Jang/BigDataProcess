@@ -12,7 +12,7 @@ with open(inputFile, "rt") as fp:
 	for line in fp:
 		uber = line.split(",")
 		dayList = uber[1].split("/")
-		day = dayOfWeek[calendar.weekday(int(dayList[2]), int(dayList[0]), int(dayList[1]))]
+		day = calendar.weekday(int(dayList[2]), int(dayList[0]), int(dayList[1]))
 
 		n = uber[0]
 		vehicle = int(uber[2])
