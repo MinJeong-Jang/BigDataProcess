@@ -3,7 +3,7 @@
 import numpy as np
 import operator
 import sys
-import os
+from os import listdir
 
 def createDataSet(fileDir):
 	labels = []
@@ -15,7 +15,7 @@ def createDataSet(fileDir):
 		fileName = fileList[i]
 		classNum = int(fileName.split('_')[0])
 		labels.append(classNum)
-		trainingMat[i, :] = getVector(fileDir +'/' + fileName)
+		trainingMat[i, :] = getVector(fileDir + '/' + fileName)
 
 	return labels, trainingMat
 
@@ -52,7 +52,7 @@ testDigits = sys.argv[2]
 testFiles = listdir(testDigits)
 m = len(testFiles)
 
-label, mat = createDataSet(trainingDigits)
+labels, mat = createDataSet(trainingDigits)
 
 for k in range(1, 21):
 	errorCount = 0
@@ -68,7 +68,3 @@ for k in range(1, 21):
 			errorCount += 1
 	
 	print(int(errorCount / count * 100))
-		
-
-
-
